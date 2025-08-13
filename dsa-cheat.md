@@ -26,3 +26,20 @@ have 2 pointers at the head, move a pointer k times forward, once the pointer re
 
 ### 6. reverse nodes in k groups- linked list 
 point currentgroupstart to head and previousgrouptail to nullptr. use a function to get the kthnode from the current group starting at currentgroupstart. create a pointer nextgroupstart pointing to kthnode->next and then make kthnode->next point to nullptr to temporarily break the list. now reverse the sub-linked list that starts from currentgroupstart and spans k nodes. create a new pointer reversedgrouphead pointing to the head of the reversed sublist. also create a pointer reversedgrouptail pointing to currentgroupstart (which becomes the tail after reversal).if currentgroupstart is the head, it means we just reversed the first group of size k, so we update head to reversedgrouphead. otherwise, we connect the previousgrouptail->next to reversedgrouphead, linking the previous group with the newly reversed one.finally, connect reversedgrouptail->next to nextgroupstart to restore the link to the remaining list, update previousgrouptail to reversedgrouptail, and move currentgroupstart to nextgroupstart to repeat the process for the next group.
+
+### 7. minimum cost stairs
+start iterating from the second index,during each iteration update the value at the ith index by the cost required to travel to the ith index by simply adding the minimum of the cost required to reach ith and ith-1 step, at last return the minimum of n-1 and n-2 
+
+### 8. climbing stairs
+have a recursive function the calls itself with the parameters n-1 and n-2, the recursion call returns the sum of the values received by the n-1 and n-2 function calls 
+
+### 9. frog climbing stairs - where cost is the difference between the successive stairs
+
+##### recursive method
+have a recursive function that calls itself twice inside a function the returns the minimum cost required for the frog to jump to the ith step,the jump is either from n-2 or n-1 th step.
+
+##### tabulation method
+use variables to store the value of dp[i-1] and dp[i-2], instead of the recursive function to reduce the time complexity from O(2^n) to O(n)
+
+### 10. power of 2 
+if n=2^x then n & (n-1)=0
